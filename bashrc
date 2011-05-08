@@ -137,3 +137,6 @@ function git-svn-merge()
 	git commit --amend
 }
 
+# set the xterm title
+xtitle () { echo -n -e "\033]0;$*\007"; }
+
