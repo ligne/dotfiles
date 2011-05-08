@@ -10,9 +10,13 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -35,7 +39,7 @@ export EDITOR=vim VISUAL=vim PAGER=less
 
 ### History ####################################################################
 
-# stop bash history from screwing up
+# Append to history file, rather than overwrite it.
 shopt -s histappend
 
 export HISTIGNORE="&:ls:[bf]g:exit:cd"
