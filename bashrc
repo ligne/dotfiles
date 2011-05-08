@@ -42,7 +42,7 @@ export EDITOR=vim VISUAL=vim PAGER=less
 # Append to history file, rather than overwrite it.
 shopt -s histappend
 
-export HISTIGNORE="&:ls:[bf]g:exit:cd"
+export HISTIGNORE=" :&:ls:[bf]g:exit:cd"
 export HISTCONTROL=ignoreboth  # ignore duplicate entries, and ones that start with a space
 export HISTFILESIZE=10000 HISTSIZE=10000
 
