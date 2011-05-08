@@ -60,7 +60,7 @@ export FIGNORE=CVS:.svn:.git
 
 ### Miscellanea ################################################################
 
-# load the keychain environmeny for this host.
+# load the keychain environment for this host.
 [ -r ~/.keychain/`hostname -s`-sh ] && . ~/.keychain/`hostname -s`-sh || eval `ssh-agent -s` >/dev/null
 
 export PERLBREW_ROOT=~/.perlbrew
