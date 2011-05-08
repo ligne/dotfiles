@@ -33,8 +33,13 @@ fi
 PS1="\[\033[;32m\][\[\033[01;32m\]\h\[\033[;32m\]@\[\033[;31m\]\A\[\033[01;34m\] \w\[\033[;32m\]]\[\033[00m\]\\$ "
 
 
+### Exports ####################################################################
+
 export PATH="~/.bin:${PATH}"
 export EDITOR=vim VISUAL=vim PAGER=less
+export LC_ALL=en_GB.utf8
+
+export IPOD_MOUNTPOINT='/media/disk'  # used by GNUPod
 
 
 ### History ####################################################################
@@ -73,12 +78,14 @@ export PERL_CPANM_OPT="--local-lib=~/.perl5"
 
 alias hd='hexdump -C'
 alias less="less -R"
-alias cw='cut -c-$COLUMNS'     # limit output to the width of the screen
+alias cw='cut -c-$COLUMNS'         # limit output to the width of the screen
 alias iotop='iotop -d3'
 alias nt='nice top'
-alias aack='ack -a'            # ack over all files, not just code.
-alias alf='ack -af'            # list all files in the tree.  like find -type f, but with less svn/git spuff.
-alias dot='ls .[a-zA-Z0-9_]*'  # list dot files only
+alias aack='ack -a'                # ack over all files, not just code.
+alias alf='ack -af'                # list all files in the tree.  like find -type f, but with less svn/git spuff.
+alias dot='ls .[a-zA-Z0-9_]*'      # list dot files only
+alias worktunnel='ssh work -T -v'
+
 
 # shortcuts for debugging catalyst
 alias carpcs='perl -Isupport -MCarp::Always script/*_server.pl -r'
