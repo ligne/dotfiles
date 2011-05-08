@@ -73,11 +73,12 @@ export PERL_CPANM_OPT="--local-lib=~/.perl5"
 
 alias hd='hexdump -C'
 alias less="less -R"
-alias cw='cut -c-$COLUMNS'  # limit output to the width of the screen
+alias cw='cut -c-$COLUMNS'     # limit output to the width of the screen
 alias iotop='iotop -d3'
 alias nt='nice top'
-alias aack='ack -a'  # ack over all files, not just code.
-alias alf='ack -af'  # list all files in the tree.  like find -type f, but with less svn/git spuff.
+alias aack='ack -a'            # ack over all files, not just code.
+alias alf='ack -af'            # list all files in the tree.  like find -type f, but with less svn/git spuff.
+alias dot='ls .[a-zA-Z0-9_]*'  # list dot files only
 
 # shortcuts for debugging catalyst
 alias carpcs='perl -Isupport -MCarp::Always script/*_server.pl -r'
