@@ -53,3 +53,112 @@ then
     . /etc/bash_completion || true
 fi
 
+
+### General settings ###########################################################
+
+PS1="\[\033[;32m\][\[\033[;39m\]\h\[\033[;32m\]@\[\033[;31m\]\A\[\033[01;34m\] \w\[\033[;32m\]]\[\033[00m\]\\$ "
+
+
+export PATH="~/.bin:${PATH}"
+export EDITOR=vim VISUAL=vim PAGER=less
+
+
+### History ####################################################################
+
+# stop bash history from screwing up
+shopt -s histappend
+
+export HISTIGNORE="&:ls:[bf]g:exit:cd"
+export HISTCONTROL=ignoreboth  # ignore duplicate entries, and ones that start with a space
+export HISTFILESIZE=10000 HISTSIZE=10000
+
+
+### Completion #################################################################
+
+shopt -s no_empty_cmd_completion
+
+# autocomplete for netcat is nice.
+complete -F _known_hosts nc
+
+# Hide these files from the completion suggestions.
+export FIGNORE=CVS:.svn:.git
+
+
+### Miscellanea ################################################################
+
+# load the keychain environmeny for this host.
+[ -r ~/.keychain/`hostname -s`-sh ] && . ~/.keychain/`hostname -s`-sh || eval `ssh-agent -s` >/dev/null
+
+export PERLBREW_ROOT=~/.perlbrew
+[ -r ~/.perlbrew/etc/bashrc ] && . ~/.perlbrew/etc/bashrc
+
+export PERL_CPANM_OPT="--local-lib=~/.perl5"
+
+
+### Aliases ####################################################################
+
+alias hd='hexdump -C'
+alias less="less -R"
+alias cw='cut -c-$COLUMNS'  # limit output to the width of the screen
+alias iotop='iotop -d3'
+alias nt='nice top'
+alias aack='ack -a'  # ack over all files, not just code.
+alias alf='ack -af'  # list all files in the tree.  like find -type f, but with less svn/git spuff.
+
+# shortcuts for debugging catalyst
+alias carpcs='perl -Isupport -MCarp::Always script/*_server.pl -r'
+alias csdbi='DBIC_TRACE=1 perl -Isupport script/*_server.pl -r'
+
+
+### Functions ##################################################################
+
+# show vim help on a topic.  eg. "vimhelp scrolloff"
+function vimhelp() { vim -n "+help $1" "+only"; }
+
+# view source of a perl module in Vim.  eg. "pmvim Net::SNMP"
+function pmvim() { perldoc -m "$1" | vim - -RnM "+set ft=perl"; }
+
+# quickfix for the search terms.
+function fnf() { vim -q <(aack -H --nocolor --nogroup --column "$@"); }
+
+# create a new quilt patch, and add all the files in the tree to it.  avoids
+# having to remember to "quilt edit" every file.
+function qn() { quilt new "$*"; ack -af --ignore-dir patches --ignore-dir .pc | xargs quilt add; }
+
+# scrub out stale SSH keys.
+function rm_bad_ssh_key()
+{
+	[[ -n $1 ]] || return
+
+	if grep -q $1 /etc/ssh/ssh_known_hosts
+	then
+		echo Deleting $1 from system known_hosts files
+		sudo sed -i '/^\[\?'$1'/d' /etc/ssh/ssh_known_hosts
+	fi
+	if grep -q $1 ${HOME}/.ssh/known_hosts
+	then
+		echo Deleting $1 from local known_hosts files
+		sed -i '/^\[\?'$1'/d' ${HOME}/.ssh/known_hosts
+	fi
+}
+
+# colorified and paged version of svn diff
+function csdiff() { svn diff "$@" | colordiff | less -RF; }
+
+# play the same file over and over
+function musicloop() { while sleep 1; do mpg321 "$@"; done; }
+
+# git-svn helpers from <http://www.fredemmott.co.uk/blog/2009/07/13/>.
+#   show the commit message and full diff for an svn revision number, assuming
+#   that 'master' follows trunk; usage: git-svn-revision 123
+function git-svn-revision() { git log master --grep=trunk@$1 --color --full-diff -p; }
+#   cherry pick a commit from master to the current branch, by revision number;
+#   usage: git-svn-merge 123
+function git-svn-merge()
+{
+	set -e
+	commit=$(git log master --grep=trunk@$1 -p | head -n1 | cut -f2 '-d ')
+	git cherry-pick $commit
+	git commit --amend
+}
+
