@@ -1,0 +1,11 @@
+# Include system wide settings (they're ignored
+# by default if ~/.inputrc exists).
+$include /etc/inputrc
+
+# search through history with pg{up,dn}.
+"\e[6~": history-search-forward
+"\e[5~": history-search-backward
+
+# no pager-completion.
+set page-completions off
+
