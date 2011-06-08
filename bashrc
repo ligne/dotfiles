@@ -39,7 +39,7 @@ export PATH="~/.bin:${PATH}"
 export EDITOR=vim VISUAL=vim PAGER=less
 export LC_ALL=en_GB.utf8
 
-export IPOD_MOUNTPOINT='/media/disk'  # used by GNUPod
+export IPOD_MOUNTPOINT='/media/iPod'  # used by GNUPod
 
 
 ### History ####################################################################
