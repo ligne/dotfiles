@@ -99,6 +99,7 @@ function vimhelp() { vim -n "+help $1" "+only"; }
 
 # view source of a perl module in Vim.  eg. "pmvim Net::SNMP"
 function pmvim() { perldoc -m "$1" | vim - -RnM "+set ft=perl"; }
+complete -o bashdefault -F _perldoc pmvim
 
 # quickfix for the search terms.
 function fnf() { vim -q <(aack -H --nocolor --nogroup --column "$@"); }
