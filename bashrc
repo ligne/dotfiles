@@ -39,6 +39,8 @@ export PATH="~/.bin:${PATH}"
 export EDITOR=vim VISUAL=vim PAGER=less
 export LC_ALL=en_GB.utf8
 
+export MANWIDTH=80   # 80-column man-pages, even when the terminal is wider
+
 export IPOD_MOUNTPOINT='/media/iPod'  # used by GNUPod
 
 
