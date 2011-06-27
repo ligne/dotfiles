@@ -88,9 +88,6 @@ alias alf='ack -af'                # list all files in the tree.  like find -typ
 alias dot='ls .[a-zA-Z0-9_]*'      # list dot files only
 alias worktunnel='ssh work -T -v'
 
-# shortcut for perl one-liners
-alias p1='perl -MData::Dumper -E "sub D(\$){ say Dumper(shift) } sub Y(\$){ say Dump(shift) }"'
-
 # shortcuts for debugging catalyst
 alias carpcs='perl -Isupport -MCarp::Always script/*_server.pl -r'
 alias csdbi='DBIC_TRACE=1 perl -Isupport script/*_server.pl -r'
@@ -154,3 +151,12 @@ xtitle () { echo -n -e "\033]0;$*\007"; }
 
 # work around broken Fedora perldoc
 perldoc () { command perldoc "$@" | less -F; }
+
+# shortcut for perl one-liners
+p1 () {
+  case "$1" in
+      -*) ;;
+       *) set -- -E "$@" ;;
+  esac
+  perl -MData::Dumper -E "sub D(\$){ say Dumper(shift) }" "$@"
+}
