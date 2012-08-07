@@ -109,7 +109,7 @@ function fnf() { vim -q <(aack -H --nocolor --nogroup --column "$@"); }
 
 # create a new quilt patch, and add all the files in the tree to it.  avoids
 # having to remember to "quilt edit" every file.
-function qn() { quilt new "$*"; ack -af --ignore-dir patches --ignore-dir .pc | xargs quilt add; }
+function qn() { quilt new "$@"; ack -af --ignore-dir patches --ignore-dir .pc | xargs quilt add; }
 
 # scrub out stale SSH keys.
 function rm_bad_ssh_key()
