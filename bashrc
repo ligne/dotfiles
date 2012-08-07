@@ -163,3 +163,8 @@ p1 () {
   perl -MData::Dumper -E "sub D(\$){ say Dumper(shift) }" "$@"
 }
 
+# lists tabs in another firefox session that aren't already open.
+othertabs () {
+  [ -n "$1" ] && comm -13 <(ffx-open-tabs | sort) <(ffx-open-tabs "$1" | sort)
+}
+
