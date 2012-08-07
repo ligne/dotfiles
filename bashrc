@@ -163,12 +163,3 @@ p1 () {
   perl -MData::Dumper -E "sub D(\$){ say Dumper(shift) }" "$@"
 }
 
-# unmangle the filenames of sciam podcast downloads
-#rename_sciam_podcasts()
-#{
-#  find -maxdepth 1 -name 'podcast.mp3*' | while read file
-#  do
-#    mv $file "`perl -E \"(q{$file} =~ m{e_id=(.*?)&ref}) && say qq{podcast-\\$1.mp3}\"`"
-#  done
-#}
-
