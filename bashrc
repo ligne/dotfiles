@@ -145,9 +145,6 @@ function git-svn-merge()
 	git commit --amend
 }
 
-# set the xterm title
-xtitle () { echo -n -e "\033]0;$*\007"; }
-
 # work around broken Fedora perldoc
 perldoc () { command perldoc "$@" | less -F; }
 
