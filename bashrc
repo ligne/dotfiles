@@ -131,9 +131,6 @@ function rm_bad_ssh_key()
 # colorified and paged version of svn diff
 function csdiff() { svn diff "$@" | colordiff | less -RFX; }
 
-# play the same file over and over
-function musicloop() { while sleep 1; do mpg321 "$@"; done; }
-
 # git-svn helpers from <http://www.fredemmott.co.uk/blog/2009/07/13/>.
 #   show the commit message and full diff for an svn revision number, assuming
 #   that 'master' follows trunk; usage: git-svn-revision 123
