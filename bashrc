@@ -88,6 +88,7 @@ alias aack='ack -a'                # ack over all files, not just code.
 alias alf='ack -af'                # list all files in the tree.  like find -type f, but with less svn/git spuff.
 alias dot='ls .[a-zA-Z0-9_]*'      # list dot files only
 alias worktunnel='ssh work -T -v'
+alias ozdate='TZ=Australia/Canberra date'
 
 # shortcuts for debugging catalyst
 alias carpcs='perl -Isupport -MCarp::Always script/*_server.pl -r'
