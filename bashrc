@@ -105,7 +105,7 @@ function pmvim() { perldoc -m "$1" | vim - -RnM "+set ft=perl"; }
 complete -o bashdefault -F _perldoc pmvim
 
 # quickfix for the search terms.
-function fnf() { vim -q <(aack -H --nocolor --nogroup --column "$@"); }
+function fnf() { vim -q <(ack -H --nocolor --nogroup --column "$@"); }
 
 # create a new quilt patch, and add all the files in the tree to it.  avoids
 # having to remember to "quilt edit" every file.
