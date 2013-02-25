@@ -42,7 +42,7 @@ export LC_ALL=en_GB.utf8
 
 export MANWIDTH=80   # 80-column man-pages, even when the terminal is wider
 
-export IPOD_MOUNTPOINT='/media/4783-BED3/'  # used by GNUPod
+export IPOD_MOUNTPOINT=/run/media/$USER/4783-BED3  # used by GNUPod
 
 
 ### History ####################################################################
