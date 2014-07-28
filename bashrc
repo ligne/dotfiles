@@ -92,9 +92,7 @@ alias msdate='TZ=America/Los_Angeles date'
 alias fcat='grep ^ '
 alias kindle-backup='rsync -hav --delete /run/media/mlb/Kindle/    /home/local/mlb/.kindle/ --exclude-from ~/.kindle-excludes --stats'
 alias sansa-backup='rsync  -hav --delete /run/media/mlb/0123-4567/ /home/local/mlb/scratch/.sansa/  --exclude-from ~/.sansa-excludes  --stats'
-
 alias ffx-open='while read url; do firefox "$url"; sleep 0.1; done'
-
 
 
 ### Functions ##################################################################
