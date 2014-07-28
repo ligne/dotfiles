@@ -6,6 +6,7 @@ $include /etc/inputrc
 "\e[6~": history-search-forward
 "\e[5~": history-search-backward
 
-# no pager-completion.
+# near-unlimited completions, with no pager.
 set page-completions off
+set completion-query-items 500
 
