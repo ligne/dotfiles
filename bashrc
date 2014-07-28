@@ -10,6 +10,11 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
 unset COLORTERM  # 256 colours makes my vim ugly.
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
