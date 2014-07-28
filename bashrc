@@ -81,19 +81,18 @@ export FIGNORE=CVS:.svn:.git
 alias aack='ack -a'                # ack over all files, not just code.
 alias alf='ack -af'                # list all files in the tree.  like find -type f, but with less svn/git spuff.
 alias cw='cut -c-$COLUMNS'         # limit output to the width of the screen
-alias dot='ls .[a-zA-Z0-9_]*'      # list dot files only
 alias fcat='grep ^ '
 alias ffx-open='while read url; do firefox "$url"; sleep 0.1; done'
 alias hd='hexdump -C'
 alias iotop='iotop -d3'
-alias kindle-backup='rsync -hav --delete /run/media/mlb/Kindle/    /home/local/mlb/.kindle/ --exclude-from ~/.kindle-excludes --stats'
 alias less="less -R"
-alias msdate='TZ=America/Los_Angeles date'
 alias nt='nice top'
-alias ozdate='TZ=Australia/Canberra date'
-alias sansa-backup='rsync  -hav --delete /run/media/mlb/0123-4567/ /home/local/mlb/scratch/.sansa/  --exclude-from ~/.sansa-excludes  --stats'
-alias worktunnel='ssh work -T -v'
 
+alias ozdate='TZ=Australia/Canberra date'
+alias msdate='TZ=America/Los_Angeles date'
+
+alias kindle-backup='rsync -hav --delete /run/media/mlb/Kindle/    /home/local/mlb/.kindle/ --exclude-from ~/.kindle-excludes --stats'
+alias sansa-backup='rsync  -hav --delete /run/media/mlb/0123-4567/ /home/local/mlb/scratch/.sansa/  --exclude-from ~/.sansa-excludes  --stats'
 
 ### Functions ##################################################################
 
