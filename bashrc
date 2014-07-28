@@ -126,20 +126,6 @@ function rm_bad_ssh_key()
 # colorified and paged version of svn diff
 function csdiff() { svn diff "$@" | dos2unix | colordiff | less -RFX; }
 
-# git-svn helpers from <http://www.fredemmott.co.uk/blog/2009/07/13/>.
-#   show the commit message and full diff for an svn revision number, assuming
-#   that 'master' follows trunk; usage: git-svn-revision 123
-function git-svn-revision() { git log master --grep=trunk@$1 --color --full-diff -p; }
-#   cherry pick a commit from master to the current branch, by revision number;
-#   usage: git-svn-merge 123
-function git-svn-merge()
-{
-	set -e
-	commit=$(git log master --grep=trunk@$1 -p | head -n1 | cut -f2 '-d ')
-	git cherry-pick $commit
-	git commit --amend
-}
-
 # work around broken Fedora perldoc
 perldoc () { command perldoc "$@" | less -F; }
 
