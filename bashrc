@@ -10,6 +10,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
+unset COLORTERM  # 256 colours makes my vim ugly.
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -82,6 +83,13 @@ alias alf='ack -af'                # list all files in the tree.  like find -typ
 alias dot='ls .[a-zA-Z0-9_]*'      # list dot files only
 alias worktunnel='ssh work -T -v'
 alias ozdate='TZ=Australia/Canberra date'
+alias msdate='TZ=America/Los_Angeles date'
+alias fcat='grep ^ '
+alias kindle-backup='rsync -hav --delete /run/media/mlb/Kindle/    /home/local/mlb/.kindle/ --exclude-from ~/.kindle-excludes --stats'
+alias sansa-backup='rsync  -hav --delete /run/media/mlb/0123-4567/ /home/local/mlb/scratch/.sansa/  --exclude-from ~/.sansa-excludes  --stats'
+
+alias ffx-open='while read url; do firefox "$url"; sleep 0.1; done'
+
 
 
 ### Functions ##################################################################
