@@ -122,7 +122,7 @@ function rm_bad_ssh_key()
 }
 
 # colorified and paged version of svn diff
-function csdiff() { svn diff "$@" | colordiff | less -RFX; }
+function csdiff() { svn diff "$@" | dos2unix | colordiff | less -RFX; }
 
 # git-svn helpers from <http://www.fredemmott.co.uk/blog/2009/07/13/>.
 #   show the commit message and full diff for an svn revision number, assuming
