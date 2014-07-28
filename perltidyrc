@@ -1,0 +1,25 @@
+-l=0                                 # no wrapping of long lines, because i always know better than it does
+-i=4                                 # 4-space indents
+-ci=4                                # indent wrapped lines by an additional 4 columns
+-sbl                                 # starting brace of sub is on new line
+--maximum-consecutive-blank-lines=2  # allow 2 consecutive blank lines
+--keep-old-blank-lines=1             # keep old blanks, but limited by the value of the --maximum-consecutive-blank-lines flag.
+--paren-tightness=2                  # no spaces at start and end of brackets
+--square-bracket-tightness=2         # ditto square brackets
+#--brace-tightness=2                  # ditto braces that aren't code blocks
+
+#--block-brace-tightness=2
+
+--backup-and-modify-in-place
+--output-line-ending=unix
+--nooutdent-long-lines
+--nospace-for-semicolon
+--nooutdent-long-comments
+--opening-brace-always-on-right
+--opening-token-right
+--stack-opening-tokens
+--stack-closing-tokens
+--break-before-all-operators
+
+#--minimum-space-to-comment=2         # two spaces before the start of comments
+
