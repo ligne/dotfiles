@@ -71,11 +71,6 @@ export FIGNORE=CVS:.svn:.git
 # load the keychain environment for this host.
 [ -r ~/.keychain/`hostname -f`-sh ] && . ~/.keychain/`hostname -f`-sh
 
-export PERLBREW_ROOT=~/.perlbrew
-[ -r ~/.perlbrew/etc/bashrc ] && . ~/.perlbrew/etc/bashrc
-
-export PERL_CPANM_OPT="--local-lib=~/.perl5"
-
 
 ### Aliases ####################################################################
 
