@@ -90,10 +90,6 @@ alias dot='ls .[a-zA-Z0-9_]*'      # list dot files only
 alias worktunnel='ssh work -T -v'
 alias ozdate='TZ=Australia/Canberra date'
 
-# shortcuts for debugging catalyst
-alias carpcs='perl -Isupport -MCarp::Always script/*_server.pl -r'
-alias csdbi='DBIC_TRACE=1 perl -Isupport script/*_server.pl -r'
-
 
 ### Functions ##################################################################
 
